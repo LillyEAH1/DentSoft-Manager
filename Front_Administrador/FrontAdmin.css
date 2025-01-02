@@ -1,0 +1,38 @@
+body {
+    background: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff !important;
+  }
+  
+  h2 {
+    color: #007bff;
+  }
+  
+  h3 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .table {
+    background: #ffffff;
+    border: 1px solid #ddd;
+  }
+  
+  .btn {
+    margin-right: 5px;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  button.btn-success {
+    display: block;
+    margin-top: 10px;
+  }
+  
