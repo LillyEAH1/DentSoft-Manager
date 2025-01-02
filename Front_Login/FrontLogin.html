@@ -4,59 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <script src="FrontLogin.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="FrontLogin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="path-to-your-favicon.ico" type="image/x-icon">
 </head>
 <body>
-  
-  <div class="container">
-    <div class="card">
-      <h1 class="title">Login</h1>
-      <form>
-        <div class="input-container">
-          <input type="text" id="Username" required>
-          <label for="Username">Username</label>
-          <div class="bar"></div>
+    <div class="container">
+        
+        <div class="card">
+            <h1 class="title">Login</h1>
+            <form>
+              <div class="input-container">
+                <input type="text" id="Username" required>
+                <label for="Username">User/email</label>
+                <div class="bar"></div>
+              </div>
+              <div class="input-container">
+                <input type="password" id="Password" required>
+                <label for="Password">Password</label>
+                <div class="bar"></div>
+              </div>
+              <div class="button-container">
+                <button><span>Go</span></button>
+              </div>
+              <div class="footer">
+                <nav>
+                <a href="forgotyourpassword.html">Forgot your password?</a>
+            </nav>
+              </div>
+            </form>
+            <div class="toggle">
+              <i class="fa fa-tooth"></i>
+              <span>Sign up</span>
+            </div>
         </div>
-        <div class="input-container">
-          <input type="password" id="Password" required>
-          <label for="Password">Password</label>
-          <div class="bar"></div>
-        </div>
-        <div class="button-container">
-          <button><span>Go</span></button>
-        </div>
-        <div class="footer">
-          <a href="#">Forgot your password?</a>
-        </div>
-      </form>
-    </div>
-    <div class="card alt">
-      <div class="toggle"></div>
-      <h1 class="title">Register <div class="close"></div></h1>
-      <form>
-        <div class="input-container">
-          <input type="text" id="regUsername" required>
-          <label for="regUsername">Username</label>
-          <div class="bar"></div>
-        </div>
-        <div class="input-container">
-          <input type="password" id="regPassword" required>
-          <label for="regPassword">Password</label>
-          <div class="bar"></div>
-        </div>
-        <div class="input-container">
-          <input type="password" id="repeatPassword" required>
-          <label for="repeatPassword">Repeat Password</label>
-          <div class="bar"></div>
-        </div>
-        <div class="button-container">
-          <button><span>Next</span></button>
-        </div>
-      </form>
-    </div>
-  </div>
 
+        <div class="card alt">
+            <h1 class="title">Register <div class="close"><i class="fa fa-times"></i></div></h1>
+            <form>
+              <div class="input-container">
+                <input type="text" id="regUsername" required>
+                <label for="regUsername">Username</label>
+                <div class="bar"></div>
+              </div>
+              <div class="input-container">
+                <input type="email" id="regEmail" required>
+                <label for="regEmail">Email</label>
+                <div class="bar"></div>
+              </div>
+              <div class="input-container">
+                <input type="password" id="regPassword" required>
+                <label for="regPassword">Password</label>
+                <div class="bar"></div>
+              </div>
+              <div class="input-container">
+                <input type="password" id="repeatPassword" required>
+                <label for="repeatPassword">Repeat Password</label>
+                <div class="bar"></div>
+              </div>
+              <div class="button-container">
+                <button><span>Next</span></button>
+              </div>
+            </form>
+        </div>
+    </div>
+    <script src="FrontLogin.js" defer></script>
 </body>
 </html>
