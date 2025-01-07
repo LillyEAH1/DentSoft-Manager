@@ -1,38 +1,219 @@
-body {
-    background: #f8f9fa;
-    font-family: 'Roboto', sans-serif;
+/* Contenedor Principal */
+.container {
+    max-width: 1200px;
+    margin: auto;
   }
   
-  .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #007bff !important;
-  }
-  
+  /* Títulos */
   h2 {
-    color: #007bff;
+    font-size: 1.8rem;
+    color: #5a9e8d;
   }
   
-  h3 {
-    color: #333;
-    margin-bottom: 20px;
+  h4 {
+    font-size: 1.2rem;
+    color: #4b4b4b;
+    border-bottom: 2px solid #5a9e8d;
+    padding-bottom: 0.5rem;
   }
   
-  .table {
-    background: #ffffff;
-    border: 1px solid #ddd;
+  /* Tabla */
+  .table-bordered {
+    font-size: 0.9rem;
   }
   
-  .btn {
-    margin-right: 5px;
+  .table-bordered th, .table-bordered td {
+    text-align: center;
   }
   
-  textarea {
-    resize: none;
+  .table-bordered tbody tr:hover {
+    background-color: #f1f1f1;
   }
   
-  button.btn-success {
-    display: block;
+  /* Botones */
+  .btn-sm {
+    font-size: 0.8rem;
+  }
+  
+  .btn-info {
+    color: #fff;
+  }
+/* Gestión de Citas */
+.table-sm th, .table-sm td {
+    text-align: center;
+  }
+  
+  #addAppointmentButton {
+    margin-top: 10px;
+  }
+/* Historial Clínico */
+#clinicalHistoryTable,
+#fullHistoryTable {
+  text-align: center;
+}
+
+#viewFullHistoryButton {
+  margin-top: 10px;
+}
+
+.modal-lg {
+  max-width: 80%;
+}
+/* Recordatorios */
+#reminderTable {
+    text-align: center;
+  }
+  
+  #addReminderButton {
     margin-top: 10px;
   }
   
+  .modal-body textarea {
+    resize: none;
+  }
+/* Generar Recetas */
+#recipeText {
+    resize: none;
+  }
+  
+  #signatureCanvas {
+    display: block;
+    margin: auto;
+  }
+  
+  .modal-body {
+    text-align: center;
+  }
+/* Reportes */
+#patientReportButton,
+#generalReportButton {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+
+.modal-body {
+  overflow-y: auto;
+}
+
+.table {
+  margin-top: 1rem;
+}
+/* Costos */
+#costTable {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  #ticketList {
+    padding: 0;
+  }
+  
+  #ticketList .list-group-item {
+    border: none;
+    font-size: 0.9rem;
+  }
+/* Recordatorios */
+#reminderTable {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  #addReminderModal textarea {
+    resize: none;
+  }
+/* Generar Recetas */
+#recipeText {
+    resize: none;
+  }
+  
+  #signatureCanvas {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+/* Reportes */
+h4 {
+    font-size: 1rem;
+    color: #4b4b4b;
+    border-bottom: 2px solid #5a9e8d;
+    padding-bottom: 0.5rem;
+  }
+  
+  button:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+/* Costos */
+#costTable th,
+#costTable td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#costTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+button {
+  font-size: 0.8rem;
+}
+/* Recordatorios */
+#reminderTable th,
+#reminderTable td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#reminderTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  font-size: 0.8rem;
+}
+/* Estilos para la sección Generar Recetas */
+#recipeText {
+    font-size: 1rem;
+    resize: none;
+  }
+  
+  #signatureCanvas {
+    display: block;
+    margin: auto;
+    border: 1px solid #ccc;
+  }
+  
+  #addSignatureModal .btn {
+    margin-top: 10px;
+  }
+  
+  .modal-content {
+    border-radius: 10px;
+  }
+/* Estilo para la sección de Reportes */
+#patientReportButton, #generalReportButton {
+    font-size: 0.9rem;
+    margin-right: 10px;
+  }
+  
+  .modal-content {
+    border-radius: 0.5rem;
+  }
+  
+  .table {
+    font-size: 0.85rem;
+  }
+  
+  .table thead {
+    background-color: #f8f9fa;
+    font-weight: bold;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f1f1f1;
+  }
+               
