@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../Frontend/css/FrontLogin.css">
+</head>
+<body>
+    <div class="container">
+        
+        <div class="card">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="userId" placeholder="User ID" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+
+        <div class="card alt">
+            <h1 class="title">Registro <div class="close"><i class="fa fa-times"></i></div></h1>
+            <form>
+              <div class="input-container">
+                <input type="text" id="regUsername" placeholder="Ingrese su nombre de usuario" required>
+                <label for="regUsername">Usuario</label>
+                <div class="bar"></div>
+              </div>
+              <div class="input-container">
+                <input type="email" id="regEmail" placeholder="Ingrese su correo electrónico" required>
+                <label for="regEmail">Correo</label>
+                <div class="bar"></div>
+              </div>
+              <div class="input-container">
+                <input type="password" id="regPassword" placeholder="Cree una contraseña" required>
+                <label for="regPassword">Contraseña</label>
+                <div class="bar"></div>
+              </div>
+              <div class="input-container">
+                <input type="password" id="repeatPassword" placeholder="Repita su contraseña" required>
+                <label for="repeatPassword">Repita su contraseña</label>
+                <div class="bar"></div>
+              </div>
+              <div class="button-container">
+                <button><span>Siguiente</span></button>
+              </div>
+            </form>
+        </div>
+    </div>
+    <script src="../Frontend/js/login.js"></script>
+</body>
+</html>
