@@ -9,7 +9,7 @@ async function testConnection() {
       connectString: 'localhost:1521/XE'
     });
     console.log('Conexión exitosa');
-    await connection.close();
+    
   } catch (err) {
     console.error('Error al conectar:', err);
   }

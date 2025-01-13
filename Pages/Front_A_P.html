@@ -14,7 +14,7 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <img src="../Frontend/img/Captura de pantalla 2025-01-02 173831.png" alt="DentSoft Logo" style="height: 60px;">
-      <a href="../Pages/index.html" class="btn btn-primary py-2 px-4 ms-3">Cerrar Sesión</a>
+      <a href="../Pages/index.html" class="btn btn-danger py-2 px-4 ms-3">Cerrar Sesión</a>
     </div>
   </nav>
 
@@ -26,7 +26,7 @@
         <h4 class="text-center">DentSoft-Manager</h4>
         <ul class="nav flex-column p-2">
           <li class="nav-item mb-3">
-            <button class="btn btn-light w-100 text-dark" id="registroBtn">Registro</button>
+            <button class="btn btn-light w-100 text-dark" id="registroBtn">Registro Dentista</button>
           </li>
           <li class="nav-item mb-3">
             <button class="btn btn-light w-100 text-dark" id="nuevoPacienteBtn">Nuevo Paciente</button>
@@ -41,40 +41,33 @@
       <div class="col-md-10">
         <h2 class="text-center">Gestión de Pacientes y Asignaciones</h2>
 
-        <!-- Asignación de Dentista y Consultorio -->
-        <div class="card mb-4" id="asignacionCard">
-          <div class="card-header text-center">Asignación de Dentista y Consultorio</div>
+        <!-- Registro de Nuevo Dentista -->
+        <div class="card mb-4" id="nuevoDentistaCard" style="display: none;">
+          <div class="card-header text-center">Registro de Nuevo Dentista</div>
           <div class="card-body">
-            <form id="asignacionForm">
+            <form id="nuevoDentistaForm" novalidate>
               <div class="mb-3">
-                <label for="selectPaciente" class="form-label">Seleccionar Paciente</label>
-                <select id="selectPaciente" class="form-select">
-                  <option value="" selected>Seleccione un paciente...</option>
-                  <option value="1">Juan Pérez</option>
-                  <option value="2">María Gómez</option>
-                  <!-- Opciones dinámicas -->
-                </select>
+                <label for="nuevoDentistaNumero" class="form-label">Número de Empleado</label>
+                <input type="text" id="nuevoDentistaNumero" class="form-control" required placeholder="Ingrese el número de empleado">
               </div>
               <div class="mb-3">
-                <label for="selectDentista" class="form-label">Seleccionar Dentista</label>
-                <select id="selectDentista" class="form-select">
-                  <option value="" selected>Seleccione un dentista...</option>
-                  <option value="101">Dr. López</option>
-                  <option value="102">Dra. Martínez</option>
-                  <!-- Opciones dinámicas -->
-                </select>
+                <label for="nuevoDentistaNombre" class="form-label">Nombre del Dentista</label>
+                <input type="text" id="nuevoDentistaNombre" class="form-control" required placeholder="Ingrese el nombre del dentista">
               </div>
               <div class="mb-3">
-                <label for="selectConsultorio" class="form-label">Seleccionar Consultorio</label>
-                <select id="selectConsultorio" class="form-select">
-                  <option value="" selected>Seleccione un consultorio...</option>
-                  <option value="A">Consultorio A</option>
-                  <option value="B">Consultorio B</option>
-                  <!-- Opciones dinámicas -->
-                </select>
+                <label for="nuevoDentistaApellidoPa" class="form-label">Apellido Paterno</label>
+                <input type="text" id="nuevoDentistaApellidoPa" class="form-control" required placeholder="Ingrese el apellido paterno">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoDentistaApellidoMa" class="form-label">Apellido Materno</label>
+                <input type="text" id="nuevoDentistaApellidoMa" class="form-control" placeholder="Ingrese el apellido materno">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoDentistaEspecialidad" class="form-label">Especialidad</label>
+                <input type="text" id="nuevoDentistaEspecialidad" class="form-control" required placeholder="Ingrese la especialidad">
               </div>
               <div class="button-container">
-                <button type="submit" class="btn btn-primary">Asignar</button>
+                <button type="submit" class="btn btn-primary">Registrar</button>
               </div>
             </form>
           </div>
@@ -84,32 +77,50 @@
         <div class="card mb-4" id="nuevoPacienteCard" style="display: none;">
           <div class="card-header text-center">Registro de Nuevo Paciente</div>
           <div class="card-body">
-            <form id="nuevoPacienteForm">
+            <form id="nuevoPacienteForm" novalidate>
+              <div class="mb-3">
+                <label for="nuevoPacienteId" class="form-label">ID del Paciente</label>
+                <input type="text" id="nuevoPacienteId" class="form-control" required placeholder="Ingrese el ID del paciente">
+              </div>
               <div class="mb-3">
                 <label for="nuevoPacienteNombre" class="form-label">Nombre del Paciente</label>
-                <input type="text" id="nuevoPacienteNombre" class="form-control" required>
+                <input type="text" id="nuevoPacienteNombre" class="form-control" required placeholder="Ingrese el nombre del paciente">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoPacienteApellidoPa" class="form-label">Apellido Paterno</label>
+                <input type="text" id="nuevoPacienteApellidoPa" class="form-control" required placeholder="Ingrese el apellido paterno">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoPacienteApellidoMa" class="form-label">Apellido Materno</label>
+                <input type="text" id="nuevoPacienteApellidoMa" class="form-control" placeholder="Ingrese el apellido materno">
               </div>
               <div class="mb-3">
                 <label for="nuevoPacienteFecha" class="form-label">Fecha de Nacimiento</label>
                 <input type="date" id="nuevoPacienteFecha" class="form-control" required>
               </div>
               <div class="mb-3">
-                <label for="nuevoPacienteDentista" class="form-label">Seleccionar Dentista</label>
-                <select id="nuevoPacienteDentista" class="form-select" required>
-                  <option value="" selected>Seleccione un dentista...</option>
-                  <option value="101">Dr. López</option>
-                  <option value="102">Dra. Martínez</option>
-                  <!-- Opciones dinámicas -->
-                </select>
+                <label for="nuevoPacienteGenero" class="form-label">Género</label>
+                <input type="text" id="nuevoPacienteGenero" class="form-control" placeholder="Ingrese el género">
               </div>
               <div class="mb-3">
-                <label for="nuevoPacienteConsultorio" class="form-label">Seleccionar Consultorio</label>
-                <select id="nuevoPacienteConsultorio" class="form-select" required>
-                  <option value="" selected>Seleccione un consultorio...</option>
-                  <option value="A">Consultorio A</option>
-                  <option value="B">Consultorio B</option>
-                  <!-- Opciones dinámicas -->
-                </select>
+                <label for="nuevoPacienteTelefono" class="form-label">Número de Teléfono</label>
+                <input type="text" id="nuevoPacienteTelefono" class="form-control" required placeholder="Ingrese el número de teléfono">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoPacienteCorreo" class="form-label">Correo Electrónico</label>
+                <input type="email" id="nuevoPacienteCorreo" class="form-control" required placeholder="Ingrese el correo electrónico">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoPacienteTipoSangre" class="form-label">Tipo de Sangre</label>
+                <input type="text" id="nuevoPacienteTipoSangre" class="form-control" placeholder="Ingrese el tipo de sangre">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoPacienteEstadoCivil" class="form-label">Estado Civil</label>
+                <input type="text" id="nuevoPacienteEstadoCivil" class="form-control" placeholder="Ingrese el estado civil">
+              </div>
+              <div class="mb-3">
+                <label for="nuevoPacienteContacto" class="form-label">Contacto de Emergencia</label>
+                <input type="text" id="nuevoPacienteContacto" class="form-control" placeholder="Ingrese el contacto de emergencia en número">
               </div>
               <div class="button-container">
                 <button type="submit" class="btn btn-primary">Registrar</button>
@@ -122,13 +133,14 @@
         <div class="card mb-4" id="busquedaCard" style="display: none;">
           <div class="card-header text-center">Búsqueda de Pacientes y Dentistas</div>
           <div class="card-body">
-            <form id="busquedaForm">
+            <form id="busquedaForm" novalidate>
               <div class="mb-3">
                 <label for="busquedaInput" class="form-label">Buscar por Nombre o ID</label>
-                <input type="text" id="busquedaInput" class="form-control" required>
+                <input type="text" id="busquedaInput" class="form-control" required placeholder="Ingrese el nombre o ID para buscar">
               </div>
               <div class="button-container">
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <button type="submit" class="btn btn-primary" id="buscarPacienteBtn">Buscar Paciente</button>
+                <button type="submit" class="btn btn-primary" id="buscarDentistaBtn">Buscar Dentista</button>
               </div>
             </form>
             <div id="busquedaResultado" class="mt-3">
@@ -141,6 +153,65 @@
             </div>
           </div>
         </div>        
-  <script src="../Frontend/js/FrontAP.js" defer></script>
+
+        <!-- Modal para Editar Información -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Editar Información</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm" novalidate>
+          <!-- Campos para edición -->
+          <div class="mb-3">
+            <label for="editId" class="form-label">ID</label>
+            <input type="text" id="editId" class="form-control" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="editNombre" class="form-label">Nombre</label>
+            <input type="text" id="editNombre" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="editApellidoPa" class="form-label">Apellido Paterno</label>
+            <input type="text" id="editApellidoPa" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label for="editApellidoMa" class="form-label">Apellido Materno</label>
+            <input type="text" id="editApellidoMa" class="form-control">
+          </div>
+          <!-- Campos adicionales si los necesitas -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para Confirmar Eliminación -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Confirmar Eliminación</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>¿Estás seguro de que deseas eliminar este registro?</p>
+        <p><strong>ID:</strong> <span id="deleteId"></span></p>
+        <p><strong>Tipo:</strong> <span id="deleteTipo"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="../Frontend/js/FrontAP.js"></script>
 </body>
 </html>
