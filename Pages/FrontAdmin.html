@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DentSoft Manager</title>
+  <title>Panel de Administración</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="../Frontend/css/FrontAdmin.css">
+  <link rel="icon" href="path-to-your-favicon.ico" type="image/x-icon">
 </head>
 <body>
   <!-- Barra de Navegación -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand" href="#">
-        <img src="../Frontend/img/Captura de pantalla 2025-01-02 173831.png" alt="DentSoft Logo" style="height: 70px; width: auto;">
-      </a>
+      <img src="../Frontend/img/Captura de pantalla 2025-01-02 173831.png" alt="DentSoft Logo" style="height: 60px;">
       <a href="../Pages/index.html" class="btn btn-primary py-2 px-4 ms-3">Cerrar Sesión</a>
     </div>
   </nav>
@@ -24,33 +23,32 @@
     <div class="row">
       <!-- Menú Lateral -->
       <div class="col-md-2 bg-light">
-          <h4>DentSoft-Manager</h4>
+        <h4 class="text-center">DentSoft-Manager</h4>
         <ul class="nav flex-column p-2">
-          <li class="nav-item mb-2">
-            <a href="#panel" class="btn btn-light w-100 text-dark">Panel</a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#gestion-pacientes" class="btn btn-light w-100 text-dark">Gestión de Pacientes</a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#gestion-citas" class="btn btn-light w-100 text-dark">Gestión de Citas</a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#historial-clinico" class="btn btn-light w-100 text-dark">Historial Clínico</a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#generar-recetas" class="btn btn-light w-100 text-dark">Generar Recetas</a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#recordatorios" class="btn btn-light w-100 text-dark">Recordatorios</a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#reportes" class="btn btn-light w-100 text-dark">Reportes</a>
-        </li>
-        <li class="nav-item mb-2">
-            <a href="#costos" class="btn btn-light w-100 text-dark">Costos</a>
-        </li>
-        
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="panelBtn">Panel</button>
+          </li>
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="gestionPacientesBtn">Gestión de Pacientes</button>
+          </li>
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="gestionCitasBtn">Gestión de Citas</button>
+          </li>
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="historialClinicoBtn">Historial Clínico</button>
+          </li>
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="generarRecetasBtn">Generar Recetas</button>
+          </li>
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="recordatoriosBtn">Recordatorios</button>
+          </li>
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="reportesBtn">Reportes</button>
+          </li>
+          <li class="nav-item mb-3">
+            <button class="btn btn-light w-100 text-dark" id="costosBtn">Costos</button>
+          </li>
         </ul>
       </div>
 
@@ -59,40 +57,28 @@
         <h2 class="text-center">Panel de Administración</h2>
         
         <!-- Panel -->
-        <div class="row text-center my-4">
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Pacientes Asignados</h5>
-                <p class="card-text" id="pacientesAsignados">0</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Citas del Día</h5>
-                <p class="card-text" id="citasDelDia">0</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Procedimientos Este Mes</h5>
-                <p class="card-text" id="procedimientosDelMes">0</p>
-              </div>
+        <div class="card mb-4" id="panelCard">
+          <div class="card-header text-center">Panel</div>
+          <div class="card-body">
+            <button id="addPatientButton" class="btn btn-primary">Agregar Paciente</button>
+            <button id="verHistorialCompletoButton" class="btn btn-secondary">Ver Historial Completo</button>
+            <button id="guardarRecetaButton" class="btn btn-success">Guardar Receta</button>
+            <button id="abrirModalFirmaButton" class="btn btn-info">Abrir Modal Firma</button>
+            <button id="generarTicketButton" class="btn btn-warning">Generar Ticket</button>
+            <button id="enviarRecordatorioButton" class="btn btn-danger">Enviar Recordatorio</button>
+            <div class="mt-3">
+              <h5>Contador de Pacientes Asignados:</h5>
+              <p id="contadorPacientesAsignados">Cargando...</p>
             </div>
           </div>
         </div>
 
     <!-- Gestión de Pacientes -->
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <h4 class="section-title">Gestión de Pacientes</h4>
-        <button class="btn btn-primary btn-sm mb-2" onclick="openAddPatientModal()">+ Agregar Paciente</button>
-        <button class="btn btn-secondary btn-sm mb-2" onclick="selectPatient()">Seleccionar Paciente</button>
-        <table class="table table-bordered table-sm">
+    <div class="card mb-4" id="gestionPacientesCard" style="display: none;">
+      <div class="card-header text-center">Gestión de Pacientes</div>
+      <div class="card-body">
+        <button id="addPatientModalButton" class="btn btn-primary mb-3">Agregar Paciente</button>
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>ID</th>
@@ -100,43 +86,99 @@
               <th>Acciones</th>
             </tr>
           </thead>
-          <tbody id="patientsTableBody">
-            <!-- Aquí se inyectan los datos dinámicos -->
+          <tbody id="pacientesTableBody">
+            <!-- Aquí se inyectan los pacientes dinámicamente -->
           </tbody>
         </table>
       </div>
     </div>
 
-    <!-- Gestión de Citas -->
-    <div class="row mb-4">
-      <div class="col-md-6">
-      <h4 class="section-title">Gestión de Citas</h4>
-      <div class="d-flex justify-content-between mb-2">
-        <button class="btn btn-primary btn-sm">+ Agendar Cita</button>
-        <select class="form-select form-select-sm w-50" aria-label="Filtrar citas" id="filtro-citas">
-          <option selected value="todas">Todas</option>
-          <option value="P">Pendientes</option>
-          <option value="A">Aceptadas</option>
-          <option value="R">Rechazadas</option>
-          <option value="Reagendada">Reagendadas</option>
-        </select>
+    <!-- Modal para agregar paciente -->
+  <div class="modal fade" id="addPatientModal" tabindex="-1" aria-labelledby="addPatientModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addPatientModalLabel">Agregar Paciente</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="addPatientForm">
+            <div class="mb-3">
+              <label for="patientName" class="form-label">Nombre del Paciente</label>
+              <input type="text" class="form-control" id="patientName" required>
+            </div>
+            <div class="mb-3">
+              <label for="patientDOB" class="form-label">Fecha de Nacimiento</label>
+              <input type="date" class="form-control" id="patientDOB" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </form>
+        </div>
       </div>
-      <table class="table table-bordered table-sm">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Paciente</th>
-            <th>Fecha</th>
-            <th>Hora</th>
-            <th>Estado</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Aquí se renderizarán las citas -->
-        </tbody>
-      </table>
     </div>
+  </div>
+
+    <!-- Gestión de Citas -->
+    <div class="card mb-4" id="gestionCitasCard" style="display: none;">
+      <div class="card-header text-center">Gestión de Citas</div>
+      <div class="card-body">
+        <button id="agendarCitaButton" class="btn btn-primary mb-3">Agendar Cita</button>
+        <div class="mb-3">
+          <label for="filtroCitas" class="form-label">Filtrar Citas</label>
+          <select id="filtroCitas" class="form-select">
+            <option value="todas">Todas</option>
+            <option value="pendientes">Pendientes</option>
+            <option value="aceptadas">Aceptadas</option>
+            <option value="rechazadas">Rechazadas</option>
+            <option value="reagendadas">Reagendadas</option>
+          </select>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Paciente</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Tipo de Cita</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="citasTableBody">
+            <!-- Aquí se inyectan las citas dinámicamente -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal para agendar cita -->
+  <div class="modal fade" id="agendarCitaModal" tabindex="-1" aria-labelledby="agendarCitaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="agendarCitaModalLabel">Agendar Cita</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="agendarCitaForm">
+            <div class="mb-3">
+              <label for="citaFecha" class="form-label">Fecha</label>
+              <input type="date" class="form-control" id="citaFecha" required>
+            </div>
+            <div class="mb-3">
+              <label for="citaHora" class="form-label">Hora</label>
+              <input type="time" class="form-control" id="citaHora" required>
+            </div>
+            <div class="mb-3">
+              <label for="citaTipo" class="form-label">Tipo de Cita</label>
+              <input type="text" class="form-control" id="citaTipo" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Agendar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
     <!-- Historial Clínico -->
     <div class="row mb-4">
@@ -157,157 +199,17 @@
         </table>
       </div>
 
-      <!-- Generar Recetas -->
-      <div class="col-md-6">
-        <h4 class="section-title">Generar Recetas</h4>
-        <form>
-          <div class="mb-3">
-            <label for="receta-texto" class="form-label">Escribir Receta:</label>
-            <textarea id="receta-texto" class="form-control" rows="3"></textarea>
-          </div>
-          <button type="button" class="btn btn-secondary btn-sm mb-2" onclick="abrirModalFirma()">Agregar Firma</button>
-          <button type="button" class="btn btn-success btn-sm" onclick="guardarReceta()">Guardar Receta</button>
-        </form>
-      </div>
+<!-- Generar Recetas -->
+<div class="col-md-6">
+  <h4 class="section-title">Generar Recetas</h4>
+  <form>
+    <div class="mb-3">
+      <label for="receta-texto" class="form-label">Escribir Receta:</label>
+      <textarea id="receta-texto" class="form-control" rows="3"></textarea>
     </div>
-
-    <!-- Recordatorios -->
-    <div class="row mb-4">
-      <div class="col-md-6">
-        <h4 class="section-title">Recordatorios</h4>
-        <form id="formRecordatorio">
-          <div class="mb-3">
-            <label for="mensajeRecordatorio" class="form-label">Escribir Recordatorio:</label>
-            <textarea id="mensajeRecordatorio" class="form-control" rows="3" required></textarea>
-          </div>
-          <button type="button" class="btn btn-primary btn-sm mb-2" onclick="enviarRecordatorio()">Enviar Recordatorio</button>
-        </form>
-        <table class="table table-bordered table-sm">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Paciente</th>
-              <th>Mensaje</th>
-              <th>Fecha</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody id="recordatoriosTableBody">
-            <!-- Aquí se inyectan los datos dinámicos -->
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Costos -->
-      <div class="col-md-6">
-        <h4 class="section-title">Costos</h4>
-        <form>
-          <ul class="list-group" id="costosList">
-            <!-- Aquí se inyectan los costos dinámicos -->
-          </ul>
-          <button type="button" class="btn btn-success btn-sm mt-2" onclick="generarTicket()">Generar Ticket</button>
-        </form>
-      </div>
-    </div>
-
-    <!-- Reportes -->
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <h4 class="section-title-center">Reportes</h4>
-        <button class="btn btn-info btn-sm" onclick="obtenerReportePaciente()">Reporte por Paciente</button>
-        <button class="btn btn-primary btn-sm" onclick="obtenerReporteGeneral()">Reporte General</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal para agregar paciente -->
-<div class="modal fade" id="addPatientModal" tabindex="-1" aria-labelledby="addPatientModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addPatientModalLabel">Agregar Paciente</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="addPatientForm">
-          <div class="mb-3">
-            <label for="patientName" class="form-label">Nombre del Paciente</label>
-            <input type="text" class="form-control" id="patientName" required>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="guardarPaciente()">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal para reagendar cita -->
-<div class="modal fade" id="reagendarModal" tabindex="-1" aria-labelledby="reagendarModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="reagendarModalLabel">Reagendar Cita</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="reagendarForm">
-          <div class="mb-3">
-            <label for="fechaReagendada" class="form-label">Nueva Fecha</label>
-            <input type="date" class="form-control" id="fechaReagendada" required>
-          </div>
-          <div class="mb-3">
-            <label for="horaReagendada" class="form-label">Nueva Hora</label>
-            <input type="time" class="form-control" id="horaReagendada" required>
-          </div>
-          <input type="hidden" id="idCitaReagendar">
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" onclick="guardarReagendar()">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal para ver historial completo -->
-<div class="modal fade" id="historialCompletoModal" tabindex="-1" aria-labelledby="historialCompletoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="historialCompletoModalLabel">Historial Clínico Completo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Aquí se inyecta el historial clínico completo -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal para ver ticket -->
-<div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="ticketModalLabel">Ticket de Costos</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Aquí se inyecta el ticket de costos -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
+    <button type="button" class="btn btn-secondary btn-sm mb-2" onclick="abrirModalFirma()">Agregar Firma</button>
+    <button type="button" class="btn btn-success btn-sm" onclick="guardarReceta()">Guardar Receta</button>
+  </form>
 </div>
 
 <!-- Modal para agregar firma -->
@@ -329,22 +231,17 @@
   </div>
 </div>
 
-<!-- Modal para ver reporte -->
-<div class="modal fade" id="reporteModal" tabindex="-1" aria-labelledby="reporteModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="reporteModalLabel">Reporte</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Aquí se inyecta el reporte -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      </div>
+
+<!-- Recordatorios -->
+<div class="col-md-6">
+  <h4 class="section-title">Recordatorios</h4>
+  <form id="formRecordatorio">
+    <div class="mb-3">
+      <label for="mensajeRecordatorio" class="form-label">Escribir Recordatorio:</label>
+      <textarea id="mensajeRecordatorio" class="form-control" rows="3" required></textarea>
     </div>
-  </div>
+    <button type="button" class="btn btn-primary btn-sm mb-2" onclick="enviarRecordatorio()">Enviar Recordatorio</button>
+  </form>
 </div>
 
 <!-- Modal para enviar recordatorio -->
@@ -372,7 +269,49 @@
   </div>
 </div>
 
+
+      <!-- Costos -->
+<div class="col-md-6">
+  <h4 class="section-title">Costos</h4>
+  <form>
+    <ul class="list-group" id="costosList">
+      <!-- Aquí se inyectan los costos dinámicos -->
+    </ul>
+    <button type="button" class="btn btn-success btn-sm mt-2" onclick="generarTicket()">Generar Ticket</button>
+  </form>
+</div>
+
+<!-- Modal para ver ticket -->
+<div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ticketModalLabel">Ticket de Costos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Aquí se inyecta el ticket de costos -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Reportes -->
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h4 class="section-title-center">Reportes</h4>
+    <button class="btn btn-info btn-sm" onclick="obtenerReportePaciente()">Reporte por Paciente</button>
+    <button class="btn btn-primary btn-sm" onclick="obtenerReporteGeneral()">Reporte General</button>
+  </div>
+</div>
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../Frontend/js/FrontAdmin.js"></script>
+<script src="../Frontend/js/FrontAdmin.js" defer></script>
+
 </body>
 </html>

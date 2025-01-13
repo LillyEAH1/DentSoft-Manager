@@ -73,3 +73,13 @@ table {
     background-color: #5a8d6b; /* Fondo verde */
     color: #ffffff; /* Texto blanco */
 }
+
+.result-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .result-item:last-child {
+    border-bottom: none;
+  }
+  

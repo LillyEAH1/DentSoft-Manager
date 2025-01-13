@@ -16,13 +16,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="../Frontend/css/bootstrap.min.css" rel="stylesheet">
     <link href="../Frontend/css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Menú -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="#" class="navbar-brand p-0">
-            <img src="Captura de pantalla 2025-01-02 173831.png" alt="DentSoft Logo" style="height: 90px;">
+            <img src="../Frontend/img/Captura de pantalla 2025-01-02 173831.png" alt="DentSoft Logo" style="height: 90px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -35,7 +36,7 @@
                 <a href="#recordatorios" class="nav-item nav-link">Recordatorios</a>
                 <a href="#costos" class="nav-item nav-link">Costos</a>
             </div>
-            <a href="../Frontend/index.html" class="btn btn-primary py-2 px-4 ms-3">Cerrar Sesión</a>
+            <a href="../Pages/index.html" class="btn btn-primary py-2 px-4 ms-3">Cerrar Sesión</a>
         </div>
     </nav>
 
@@ -44,7 +45,8 @@
         <div class="row py-3">
             <div class="col-12 text-center">
                 <h1 class="display-3 text-white animated zoomIn">Dashboard Usuario</h1>
-                <h4 class="display-3 text-white animated zoomIn">¡Bienvenido!</h4>
+                <a href="../Pages/index.html" class="h4 text-white">Inicio</a>
+                <a href="" class="h4 text-white">¡Bienvenido!</a>
             </div>
         </div>
     </div>
@@ -53,26 +55,26 @@
     <div class="container-fluid py-5">
         <div class="container">
             <div class="row g-4">
-<!-- Calendario -->
-<div class="col-lg-6" id="citas">
-    <div class="bg-light rounded p-4 h-100">
-        <h4 class="mb-4 text-primary">Calendario de Citas</h4>
-        <iframe src="https://calendar.google.com/calendar/embed" style="border:0; width:100%; height:400px;" frameborder="0" scrolling="no"></iframe>
-        <div class="mt-3">
-            <h5 class="text-secondary">Selecciona Hora</h5>
-            <select class="form-select">
-                <option value="09:00 AM">09:00 AM</option>
-                <option value="10:00 AM">10:00 AM</option>
-                <option value="11:00 AM">11:00 AM</option>
-                <option value="02:00 PM">02:00 PM</option>
-                <option value="03:00 PM">03:00 PM</option>
-            </select>
-            <button class="btn btn-primary mt-3 w-100">Confirmar Cita</button>
-        </div>
-    </div>
-</div>
-                <!-- Mis Citas -->
+                <!-- Calendario -->
                 <div class="col-lg-6" id="citas">
+                    <div class="bg-light rounded p-4 h-100">
+                        <h4 class="mb-4 text-primary">Calendario de Citas</h4>
+                        <div id="calendar"></div>
+                        <div class="mt-3">
+                            <h5 class="text-secondary">Selecciona Hora</h5>
+                            <select id="hora-select" class="form-select">
+                                <option value="09:00 AM">09:00 AM</option>
+                                <option value="10:00 AM">10:00 AM</option>
+                                <option value="11:00 AM">11:00 AM</option>
+                                <option value="02:00 PM">02:00 PM</option>
+                                <option value="03:00 PM">03:00 PM</option>
+                            </select>
+                            <button id="confirmar-cita-btn" class="btn btn-primary mt-3 w-100">Confirmar Cita</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mis Citas -->
+                <div class="col-lg-6" id="mis-citas">
                     <div class="bg-light rounded p-4 h-100">
                         <h4 class="mb-4 text-primary">Mis Citas</h4>
                         <table class="table table-bordered">
@@ -84,19 +86,8 @@
                                     <th>Comentarios</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2025-01-15</td>
-                                    <td>10:00 AM</td>
-                                    <td>Aceptada</td>
-                                    <td>Revisión general</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-01-20</td>
-                                    <td>03:00 PM</td>
-                                    <td>Rechazada</td>
-                                    <td>El dentista no está disponible</td>
-                                </tr>
+                            <tbody id="citas-tbody">
+                                <!-- Las citas se cargarán aquí dinámicamente -->
                             </tbody>
                         </table>
                     </div>
@@ -104,43 +95,36 @@
             </div>
 
             <div class="row g-4 mt-4">
-<!-- Recetas -->
-<div class="col-lg-6" id="recetas">
-    <div class="bg-light rounded p-4 h-100">
-        <h4 class="mb-4 text-primary">Recetas</h4>
-        <textarea class="form-control bg-light border-0 mb-3" rows="4" readonly>
-Receta generada por el dentista: Ibuprofeno 200mg - Tomar 1 cada 8 horas por 5 días.
-        </textarea>
-        <button class="btn btn-primary w-100">Descargar Receta en PDF</button>
-    </div>
-</div>
-<!-- Costos -->
-<div class="col-lg-6" id="costos">
-    <div class="bg-light rounded p-4 h-100">
-        <h4 class="mb-4 text-primary">Costos</h4>
-        <ul class="list-group mb-3">
-            <li class="list-group-item">Tratamiento: Ortodoncia - <strong>$5,000</strong></li>
-            <li class="list-group-item">Medicamento: Ketorolaco - <strong>$150</strong></li>
-        </ul>
-        <h5>Total: <strong>$5,150</strong></h5>
-        <button class="btn btn-primary w-100">Generar Ticket</button>
-    </div>
-</div>
-
-<!-- Recordatorios -->
-<div class="col-lg-12" id="recordatorios">
-    <div class="bg-light rounded p-4 h-100">
-        <h4 class="mb-4 text-primary">Recordatorios</h4>
-        <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>2025-01-15</span>
-                <span>Recordatorio de limpieza</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>2025-01-20</span>
-                <span>Cita de control anual</span>
-            </li>
-        </ul>
+                <!-- Recetas -->
+                <div class="col-lg-6" id="recetas">
+                    <div class="bg-light rounded p-4 h-100">
+                        <h4 class="mb-4 text-primary">Recetas</h4>
+                        <textarea id="recetas-textarea" class="form-control bg-light border-0 mb-3" rows="4" readonly></textarea>
+                        <button id="descargar-receta-btn" class="btn btn-primary w-100">Descargar Receta en PDF</button>
+                    </div>
+                </div>
+                <!-- Costos -->
+                <div class="col-lg-6" id="costos">
+                    <div class="bg-light rounded p-4 h-100">
+                        <h4 class="mb-4 text-primary">Costos</h4>
+                        <ul id="costos-list" class="list-group mb-3">
+                            <!-- Los costos se cargarán aquí dinámicamente -->
+                        </ul>
+                        <h5>Total: <strong id="total-costos">$0</strong></h5>
+                        <button id="generar-ticket-btn" class="btn btn-primary w-100">Generar Ticket</button>
+                    </div>
+                </div>
+                <!-- Recordatorios -->
+                <div class="col-lg-12" id="recordatorios">
+                    <div class="bg-light rounded p-4 h-100">
+                        <h4 class="mb-4 text-primary">Recordatorios</h4>
+                        <ul id="recordatorios-list" class="list-group">
+                            <!-- Los recordatorios se cargarán aquí dinámicamente -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -153,6 +137,9 @@ Receta generada por el dentista: Ibuprofeno 200mg - Tomar 1 cada 8 horas por 5 d
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+    <script src="../Frontend/js/main.js"></script>
+    <script src="../Frontend/js/VisualUsuario.js"></script>
 </body>
+
 </html>

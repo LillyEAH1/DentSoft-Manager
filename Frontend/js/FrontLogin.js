@@ -1,25 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Registro
-  document.querySelector('.toggle').addEventListener('click', function () {
-    console.log('Lápiz clicado, agregando clase "active".');
-    const container = document.querySelector('.container');
-    if (container) {
-      container.classList.add('active');
-      console.log('Clase "active" añadida.');
+  const loginForm = document.getElementById('loginForm');
+  const registerForm = document.getElementById('registerForm');
+  const toggleButton = document.querySelector('.toggle');
+  const closeButton = document.querySelector('.close');
+
+  toggleButton.addEventListener('click', () => {
+    document.querySelector('.container').classList.toggle('active');
+  });
+
+  closeButton.addEventListener('click', () => {
+    document.querySelector('.container').classList.remove('active');
+  });
+
+  loginForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const userId = document.getElementById('Username').value;
+    const password = document.getElementById('Password').value;
+
+    // IDs de pacientes válidos
+    const validPatientIds = ['1', '2', '3', '4', '5', '6', '7', '8'];
+    // ID de empleado válido
+    const validEmployeeId = '1001';
+
+    if (validPatientIds.includes(userId)) {
+        // Redirigir a VisualUsuario.html
+        window.location.href = '../Pages/VisualUsuario.html';
+    } else if (userId === validEmployeeId) {
+        // Mostrar mensaje de elección
+        const choice = confirm('¿Quiere ir a dashboard administrador o dashboard dentista?');
+        if (choice) {
+            // Redirigir a Front_A_P.html
+            window.location.href = '../Pages/Front_A_P.html';
+        } else {
+            // Redirigir a FrontAdmin.html
+            window.location.href = '../Pages/FrontAdmin.html';
+        }
     } else {
-      console.error('No se encontró el contenedor con clase "container".');
+        alert('ID de usuario no válido');
     }
   });
 
-  // Login (return)
-  document.querySelector('.close').addEventListener('click', function () {
-    console.log('Botón cerrar clicado, removiendo clase "active".');
-    const container = document.querySelector('.container');
-    if (container) {
-      container.classList.remove('active');
-      console.log('Clase "active" eliminada.');
-    } else {
-      console.error('No se encontró el contenedor con clase "container".');
+  registerForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    const username = document.getElementById('regUsername').value;
+    const email = document.getElementById('regEmail').value;
+    const password = document.getElementById('regPassword').value;
+    const repeatPassword = document.getElementById('repeatPassword').value;
+
+    if (password !== repeatPassword) {
+      alert('Las contraseñas no coinciden');
+      return;
     }
+
+    // Aquí puedes agregar la lógica para enviar los datos al servidor
+    console.log('Register:', { username, email, password });
+
+    // Redirigir a Front_A_P.html
+    window.location.href = '../Pages/Front_A_P.html';
   });
 });
